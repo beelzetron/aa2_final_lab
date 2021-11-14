@@ -6,7 +6,7 @@
   tasks:
     - name: Get control node facts from Openstack
       os_server_info:
-        cloud: "{{ instance_cloud }}"
+        cloud: "{{ instance_cloud | default(omit) }}"
         server: control
       register: control_node_info
     
@@ -44,7 +44,7 @@
 
     - name: Collect new instances info
       os_server_info:
-        cloud: "{{ instance_cloud }}"
+        cloud: "{{ instance_cloud | default(omit) }}"
         server: dev-*
       register: dev_instances_info
 
