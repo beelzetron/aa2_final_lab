@@ -12,7 +12,7 @@
 
     - name: Destroy instances
       os_server:
-        cloud: "{{ instance_cloud }}"
+        cloud: "{{ instance_cloud | default(omit) }}"
         name: "{{ __instance.name }}"
         state: absent
       loop: "{{ dev_instances_info.openstack_servers }}"
