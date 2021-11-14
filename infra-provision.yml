@@ -64,8 +64,6 @@
   vars_files:
     - vars/main-vars.yml
   pre_tasks:
-    - name: Wait for instances to be reachable
-      wait_for_connection:
     - name: Check Satellite is reachable
       uri:
         url: "{{ satellite_ca_rpm }}"
