@@ -62,7 +62,7 @@
   become: yes
   gather_facts: no
   vars_files:
-    - vars/infra-vars.yml
+    - vars/main-vars.yml
   pre_tasks:
     - name: Wait for instances to be reachable
       wait_for_connection:
